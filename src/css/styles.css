@@ -1,6 +1,4 @@
-.is-hidden {
-  display: none;
-}
+@import url('./loader.css');
 
 h1,
 h2,
@@ -16,11 +14,7 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
-}
-
-.breed-select {
-  display: block;
-  margin: 20px auto 0;
+  min-height: 100%;
 }
 
 .cat-info {
@@ -62,4 +56,13 @@ body {
   margin-top: 50px;
   font-size: 14px;
   font-style: italic;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.select-container {
+  max-width: 500px;
+  margin: 20px auto;
 }

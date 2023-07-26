@@ -7,13 +7,25 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <select class="breed-select is-hidden"></select>
-    <p class="loader">Loading data, please wait...</p>
-    <p class="error is-hidden">
-      Oops! Something went wrong! Try reloading the page!
-    </p>
+    <div class="select-container">
+      <select class="breed-select is-hidden"></select>
+    </div>
+    <div class="backdrop">
+      <div class="spinnerContainer">
+        <div class="spinner"></div>
+        <div class="loader">
+          <p>loading</p>
+          <div class="words">
+            <span class="word">dogs</span>
+            <span class="word">cats</span>
+            <span class="word">birds</span>
+            <span class="word">fish</span>
+            <span class="word">dogs</span>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="cat-info"></div>
-
     <script src="js/index.js" type="module"></script>
   </body>
 </html>

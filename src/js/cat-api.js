@@ -1,5 +1,4 @@
 import axios from "axios";
-import { result } from "lodash";
 
 const apiKey = 'live_sW0PYRsVvFmIP6p9uFgJzQTR6aDBktZBD4fKfgnGbCKgtHdhwf7guufZawFBfnm7'
 axios.defaults.headers.common["x-api-key"] = apiKey;

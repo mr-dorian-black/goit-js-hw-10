@@ -1,14 +1,13 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
-import SlimSelect from 'slim-select'
-
-new SlimSelect({
-     select: '.breed-select'
-})
+import SlimSelect from 'slim-select';
+import 'slim-select/dist/slimselect.css';
+import Notiflix from 'notiflix';
+import "notiflix/dist/notiflix-3.2.6.min.css";
 
 const selector = document.querySelector('.breed-select');
-const loader = document.querySelector('.loader');
-const error = document.querySelector('.error');
+const loader = document.querySelector('.backdrop');
 const catInfo = document.querySelector('.cat-info');
+
 
 function renderBreeds(breeds) {
      const markup = breeds
@@ -29,7 +28,7 @@ function renderInfo(info) {
      <p class="link">More details: <a href="${breed.wikipedia_url}" target="_blank">Wikipedia</a></p>
      </div>`
      catInfo.innerHTML = markup;
-     console.log(info)
+
 }
 
 fetchBreeds()
@@ -37,8 +36,20 @@ fetchBreeds()
           renderBreeds(result);
           selector.classList.toggle('is-hidden');
           loader.classList.toggle('is-hidden');
+     }).then(() => {
+          new SlimSelect({
+               select: '.breed-select'
+          })
      })
-     .catch(() => error.classList.toggle('is-hidden'));
+     .catch(() => {
+          Notiflix.Notify.failure(
+               `Oops! Something went wrong! Try reloading the page!`,
+               {
+                    timeout: 4000,
+                    useIcon: false
+               },
+          )
+     });
 
 selector.addEventListener("change", () => {
      loader.classList.toggle('is-hidden');
@@ -46,7 +57,15 @@ selector.addEventListener("change", () => {
           loader.classList.toggle('is-hidden');
           renderInfo(result);
      })
-          .catch(() => error.classList.toggle('is-hidden'));
+          .catch(() => {
+               Notiflix.Notify.failure(
+                    `Oops! Something went wrong! Try reloading the page!`,
+                    {
+                         timeout: 4000,
+                         useIcon: false
+                    },
+               )
+          });
 });
 
 

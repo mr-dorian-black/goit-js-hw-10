@@ -25,7 +25,7 @@ function renderInfo(info) {
      <h2 class="title">${breed.name}</h2>
      <p class="description">${breed.description}</p>
      <p><span class="temperament">Temperament: </span>${breed.temperament}</p>
-     <p class="link">More details: <a href="${breed.wikipedia_url}" target="_blank">Wikipedia</a></p>
+     <p class="link">More information: <a href="${breed.wikipedia_url}" target="_blank">Wikipedia</a></p>
      </div>`
      catInfo.innerHTML = markup;
 
